@@ -33,3 +33,19 @@ code {
     font-size: 18px;
   }
 }
+
+.form-container {
+  width: 350px;
+  margin: 20px auto;
+
+  .form {
+    .form_email,
+    .form_password,
+    .form_btn {
+      display: block;
+      margin-bottom: 20px;
+      font-size: 26px;
+      padding: 10px;
+    }
+  }
+}
