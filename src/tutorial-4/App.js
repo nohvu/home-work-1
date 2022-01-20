@@ -11,7 +11,6 @@ function handleClickAdd(event) {
   let input = document.querySelector("input");
   input.value.trim() && tasks.push(input.value);
   render();
-  console.log(tasks);
   input.value = "";
 }
 
