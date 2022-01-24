@@ -9,10 +9,10 @@ import { ValidateEmails } from "../functions/ValidateMail";
 
 export const Form = () => {
   const [comments, setComments] = React.useState<Array<IComm>>([]);
-  const [name, setName] = React.useState<string>("");
-  const [mail, setMail] = React.useState<string>("");
-  const [comm, setComm] = React.useState<string>("");
-  const arr: Array<IComm> = [...JSON.parse(localStorage.getItem("comments") || "{}")];
+  const [name, setName] = React.useState("");
+  const [mail, setMail] = React.useState("");
+  const [comm, setComm] = React.useState("");
+  const arr: Array<IComm> = [...JSON.parse(localStorage.getItem("comments") || "[]")];
 
   const addName = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
@@ -37,11 +37,18 @@ export const Form = () => {
       createdAt: sendDate,
       text: comm,
     };
-    name.trim() ? name.trim() : alert("Введите имя");
-    ValidateEmails(mail) ? mail.trim() : alert("Введите корректный email");
-    comm.trim() ? comm.trim() : alert("Оставьте комментарий");
-
-    name.trim() && ValidateEmails(mail) && comm.trim() && setComments((prev) => [...prev, obj]);
+    if (!name.trim()) {
+      alert("Введите имя");
+    }
+    if (!ValidateEmails(mail)) {
+      alert("Введите корректный email");
+    }
+    if (!comm.trim()) {
+      alert("Оставьте комментарий");
+    }
+    if (name.trim() && ValidateEmails(mail) && comm.trim()) {
+      setComments((prev) => [...prev, obj]);
+    }
     setName("");
     setMail("");
     setComm("");
