@@ -6,9 +6,11 @@ import ReactDOM from "react-dom";
 //import App from "./tutorial-3/App";
 //import App from "./tutorial-5/App";
 //import App from "./tutorial-6/App";
-import App from "./tutorial-7/App";
-import styles from "./tutorial-7/App";
-import "bootstrap/dist/css/bootstrap.min.css";
+//import App from "./tutorial-7/App";
+import App from "./tutorial-8/App";
+import "./tutorial-8/styles.scss";
+//import styles from "./tutorial-7/App";
+//import "bootstrap/dist/css/bootstrap.min.css";
 
 ReactDOM.render(
   <React.StrictMode>
