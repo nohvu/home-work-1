@@ -9,7 +9,7 @@ interface IPost {
 function App() {
   const [users, setUsers] = React.useState<IPost[]>([]);
 
-  async function handleClick() {
+  async function getUsers() {
     try {
       const res = await fetch("https://61efebb9732d93001778e6b4.mockapi.io/posts");
       if (!res.ok) {
@@ -29,7 +29,7 @@ function App() {
           <li key={user.id}>{user.name}</li>
         ))}
       </ul>
-      <button onClick={handleClick}>Get users</button>
+      <button onClick={getUsers}>Get users</button>
     </div>
   );
 }
