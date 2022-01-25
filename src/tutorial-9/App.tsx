@@ -16,7 +16,7 @@ function App() {
         throw new Error(res.statusText);
       }
       const result = await res.json();
-      setUsers((prev) => [...prev, ...result]);
+      setUsers(result);
     } catch (error) {
       console.error(error);
     }
